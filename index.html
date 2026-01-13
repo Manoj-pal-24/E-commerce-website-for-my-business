@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix Mith | Premium Food Ordering</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <i class="fa-solid fa-burger"></i> MIX MITH
+        </div>
+        <div class="header-icons">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Taste the <span class="highlight">Magic</span></h1>
+            <p>Fresh ingredients, delivered with love. Experience the best fast food in town.</p>
+            <button onclick="scrollToMenu()">View Menu</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="section-header">
+            <h2>Our Menu</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Items will be injected here? No, let's keep them hardcoded for now or move to JS config? 
+                 Plan said "Modify index.html", keeping structure similar but better classes is fine. 
+                 Let's rewrite them with better structure. -->
+
+            <div class="card" data-id="1" data-name="Ilachi Tea" data-price="20">
+                <div class="card-img">
+                    <img src="assets/images/ilachi_tea.png" alt="Ilachi Tea">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Ilachi Tea</h3>
+                        <span class="price">₹20</span>
+                    </div>
+                    <p class="desc">Aromatic cardamom infused fresh tea.</p>
+                    <button class="add-btn" onclick="addToCart(1, 'Ilachi Tea', 20)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-id="2" data-name="Maska Bun" data-price="30">
+                <div class="card-img">
+                    <img src="assets/images/maska_bun.png" alt="Maska Bun">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Maska Bun</h3>
+                        <span class="price">₹30</span>
+                    </div>
+                    <p class="desc">Soft bun loaded with fresh butter.</p>
+                    <button class="add-btn" onclick="addToCart(2, 'Maska Bun', 30)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-id="3" data-name="Magic Lays Crunch" data-price="59">
+                <div class="card-img">
+                    <img src="assets/images/magic_lays.png" alt="Magic Lays">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Magic Lays Crunch</h3>
+                        <span class="price">₹59</span>
+                    </div>
+                    <p class="desc">Crispy Lays topped with secret spices.</p>
+                    <button class="add-btn" onclick="addToCart(3, 'Magic Lays Crunch', 59)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-id="4" data-name="Classic Burger" data-price="49">
+                <div class="card-img">
+                    <img src="assets/images/classic_burger.png" alt="Classic Burger">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Classic Burger</h3>
+                        <span class="price">₹49</span>
+                    </div>
+                    <p class="desc">Juicy patty with fresh veggies.</p>
+                    <button class="add-btn" onclick="addToCart(4, 'Classic Burger', 49)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-id="5" data-name="Choco Strawberry" data-price="149">
+                <div class="card-img">
+                    <img src="assets/images/choco_strawberry.png" alt="Dessert">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Choco Strawberry</h3>
+                        <span class="price">₹149</span>
+                    </div>
+                    <p class="desc">Rich chocolate with fresh strawberry.</p>
+                    <button class="add-btn" onclick="addToCart(5, 'Choco Strawberry', 149)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-id="6" data-name="Lays Salad" data-price="45">
+                <div class="card-img">
+                    <img src="assets/images/lays_salad.png" alt="Salad">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3>Lays Salad</h3>
+                        <span class="price">₹45</span>
+                    </div>
+                    <p class="desc">Healthy salad with a crunch twist.</p>
+                    <button class="add-btn" onclick="addToCart(6, 'Lays Salad', 45)">
+                        Add to Cart <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Cart Items injected via JS -->
+            <div class="empty-cart-msg">Your cart is empty 😔</div>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">
+                Checkout <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Checkout Details</h3>
+                <button onclick="closeCheckout()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm" onsubmit="handleOrder(event)">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="custName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="custPhone" required placeholder="9876543210">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea id="custAddress" required placeholder="Delivery Address..."></textarea>
+                    </div>
+
+                    <div class="order-summary-mini" id="orderSummaryMini"></div>
+
+                    <div class="checkout-actions">
+                        <button type="submit" class="place-btn" style="width: 100%; background: #25D366;">
+                            <i class="fa-brands fa-whatsapp"></i> Place Order on WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
